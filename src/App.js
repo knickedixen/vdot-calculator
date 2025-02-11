@@ -91,6 +91,7 @@ class VDOTForm extends React.Component {
     }
 
     onUnitChange = (event, unit) => {
+        // BUG: Doesnt handle distance select being empty. Should calculate distance from current distance?
         this.setState({unit: unit, distance: commonDistances[this.state.distanceSelect][unit]}, this.updatePace);
     }
 
