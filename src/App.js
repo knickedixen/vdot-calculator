@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import * as React from 'react';
 import TimeFieldNoLimit from './TimeFieldNoLimit';
@@ -48,7 +47,6 @@ class VDOTForm extends React.Component {
 
         let timeInSeconds = convertTimeStringToSeconds(this.state.time);
         let pace = timeInSeconds / distance;
-        // let secondsPerKilometers = secondsPerMeter * 1000; //TODO convert to km or miles
 
         this.setState({pace : createTimeString(pace, false)}, this.stateChanged)
     }
@@ -105,7 +103,7 @@ class VDOTForm extends React.Component {
     onDistanceChange = (event) => {
         let distanceSelectValue = '';
         if (Object.values(commonDistances).includes(Number(event.target.value))) {
-            distanceSelectValue = event.target.value; //TODO not working with miles+km?
+            distanceSelectValue = event.target.value;
         }
         this.setState({distanceSelect: distanceSelectValue, distance: event.target.value}, this.updatePace);
     }
@@ -144,7 +142,6 @@ class VDOTForm extends React.Component {
                 </Typography>
                 <div>
                 <FormControl component="fieldset">
-                    {/*<FormLabel component="legend">Unit</FormLabel>*/}
                     <RadioGroup row aria-label="position"
                                 name="position"
                                 defaultValue="top"
