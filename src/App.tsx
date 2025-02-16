@@ -1,7 +1,7 @@
 import './App.css';
 import * as React from 'react';
-import TimeFieldNoLimit from './TimeFieldNoLimit';
 import { TextField, InputLabel, Select, MenuItem, FormControl, Typography, TableContainer, Table, RadioGroup, TableHead, TableRow, TableCell, TableBody, Paper, FormLabel, FormControlLabel, Radio, InputAdornment, SelectChangeEvent } from "@mui/material";
+import TimeField from 'react-advanced-timefield';
 
 type Distance = {
     km: number;
@@ -200,15 +200,15 @@ class VDOTForm extends React.Component<{}, State> {
                     </div>
                     <div>
                         <FormControl sx={{ maxWidth: 150 }} margin={"normal"}>
-                            <TimeFieldNoLimit
+                            <TimeField
                                 input={<TextField />}
-                                showHours
                                 value={this.state.time}
                                 onChange={this.onTimeChange}
+                                showSeconds
                             />
                         </FormControl>
                         <FormControl sx={{ maxWidth: 150 }} margin={"normal"}>
-                            <TimeFieldNoLimit
+                            <TimeField
                                 input={<TextField InputProps={{
                                     endAdornment: <InputAdornment position="end">/ {this.state.unit}</InputAdornment>,
                                 }} />}
